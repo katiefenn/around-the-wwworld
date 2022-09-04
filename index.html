@@ -12,12 +12,684 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="src/styles.css">
 	</head>
 	<body>
+		<button id="restart-audio-context">Restart Audio Context</button>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section></section>
+				<section data-background-video="src/around-the-world-slow.mp4" data-background-video-loop="true" data-transition="fade" class="title-slide" data-background-color="rgb(0, 0, 0)">
+					<h1 class="r-fit-text" style="font-family: Gputeks;">
+						Around the <em>WWW</em>orld
+					</h1>
+					<span style="font-size: 22px;">
+						What Daft Punk, Web MIDI and Web Audio can tell us about what the web does best
+					</span>
+				</section>
+
+				<section id="name-slide" data-background-video="src/around-the-world-slow.mp4" data-background-video-loop="true" data-transition="fade" class="title-slide" data-background-color="rgb(0, 0, 0)">
+					Hi I'm <em>Katie</em><br />
+					<small>@katie_fenn</small>
+
+					<aside class="notes">
+						<ul>
+							<li>Hi, I'm Katie.</li>
+							<li>I work at the Financial Times as a tech lead.</li>
+							<li>I've also worked at a bunch of places including Monzo and NPM.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade">
+					I really like <em>Daft Punk</em><br />
+					<small>(but you don't have to like Daft Punk)</small>
+
+					<aside class="notes">
+						<ul>
+							<li>I really like Daft Punk</li>
+							<li>But you don't have to like Daft Punk to watch this talk</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade">
+					(...promise)
+					<img
+						src="src/limmy.png"
+						alt="Screenshot from Limmy's Twitter feed: 'Check out Daft Punk's new single Get Lucky if you get the chance. Sound of the summer.'" />
+
+					<aside class="notes">
+						<ul>
+							<li>Promise.</li>
+							<li>Limmy: "Check out Daft Punk's new single Get Lucky... sound of the summer"</li>
+							<li>This talk isn't about Daft Punk</li>
+							<li>It's more about the technology of electronic music</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background-image="src/alive-2007.jpg" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Just in case you don't know who Daft Punk are</li>
+							<li>Grammy Award winning electronic music duo from Paris</li>
+							<li>Famous for dressing as robots while performing</li>
+							<li>This is the image most people are familiar with, but...</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<span style="color: black;" class="image-credit">CC BY-SA 2.0: Minyoung Choi</span>
+					<p class="image-description"><span>Daft Punk performing at Coachella 2007</span></p>
+				</div>
+
+				<section data-background-image="src/guy-and-thomas.jpg" data-transition="fade">
+
+					<aside class="notes">
+						<ul>
+							<li>What many people don't know is their career spans nearly 30 years</li>
+							<li>They were pioneers of French house music</li>
+							<li>This is the image they selected for their first album in 1997</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Thomas Bangalter and <br />Guy-Manuel de Homem-Christo</span></p>
+				</div>
+
+				<section data-background-image="src/909.jpg" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Early in their career, they used synthesisers that were already old-hat in the 90s</li>
+							<li>Including the Roland TR-909</li>
+							<li>(Released 1983)</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<span style="color: white;" class="image-credit">CC BY 2.0: j bizzie</span>
+					<p class="image-description"><span>Roland TR-909</span></p>
+				</div>
+
+				<section data-background-image="src/106.jpg" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>...and the Roland Juno 106</li>
+							<li>(Released 1984)</li>
+							<li>These machines could be found for under £100 second-hand</li>
+							<li>because they were considered old hat</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<span style="color: white;" class="image-credit">CC BY-SA 2.0: nourogg</span>
+					<p class="image-description"><span>Roland Juno 106</span></p>
+				</div>
+
+				<section data-background-image="src/synthesiser.jpg"  data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Synthesisers like the Juno 106 are built on subtractive synthesis</li>
+							<li>Famously pioneered by Bob Moog, creator of the Minimoog symthesiser</li>
+							<li>This is my Moog Matriarch synthesiser, which works on the same principle</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Subtractive Synthesis</span></p>
+				</div>
+
+				<section data-background-image="src/synth-demo-oscillators-still.png" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Synthesisers shape electronic signals which, when you plug them into loudspeakers, make different kinds of noise</li>
+							<li>I've hooked my synthesiser up to an oscilloscope</li>
+							<li>Plugin to show you the shape of the sound they make</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background-video="src/synth-demo-oscillators.mp4" data-transition="fade"></section>
+					<aside class="notes">
+						<ul>
+							<li>Sine waves sound soft</li>
+							<li>Sawtooth waves sound sharp</li>
+							<li>Square waves sound like a mix of both</li>
+							<li>Pulse waves can vary their pulse width to sound sharper or squarer</li>
+							<li>Changing the shape changes the texture of the sound</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Synthesisers like the 106 and the 909 were old tech in the 90s</li>
+							<li>But they did have a new technology that would change electronic music forever</li>
+							<li>...and that technology...</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="zoom">
+					<img src="src/MIDI_LOGO.svg" alt="MIDI logo" />
+					<aside class="notes">
+						<ul>
+							<li>...was MIDI</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background-image="src/midi-inputs.jpg" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>This is what MIDI cables and ports look like</li>
+							<li>Nearly all synthesisers have them now</li>
+							<li>MIDI cables are cheap and very easy to use</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>MIDI inputs</span></p>
+				</div>
+
+				<section data-transition="fade">
+					<img src="src/MIDI_LOGO.svg" alt="MIDI logo" />
+					<aside class="notes">
+						<ul>
+							<li>MIDI lets musicians synchronise machines of different types and brands</li>
+							<li>You could prepare performances at home on a sequencer</li>
+							<li>and mix them in a live performance on your midi-enabled synthesiser and drum machine</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background-image="src/emerson-lake-palmer.jpeg" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Synthesisers were a common sight in prog rock bands in the 70s</li>
+							<li>Slowly they went from being a part in a band...</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<span style="color: white;" class="image-credit">CC BY-SA 3.0: Gorupdebesanez</span>
+					<p class="image-description"><span>Emerson, Lake and Palmer</span></p>
+				</div>
+
+				<section data-background-image="src/vince-clarke.jpeg" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>...to being *the* band. Bands like:</li>
+							<li>Kraftwerk, Human League, Erasure</li>
+							<li>Orbital, Chemical Brothers, The Prodigy</li>
+							<li>and Daft Punk all used synthesisers to revolutionise music</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<span style="color: white;" class="image-credit">CC BY-SA 3.0: Krajazz</span>
+					<p class="image-description">Vince Clarke</p>
+				</div>
+
+				<section data-transition="fade">
+					Web <em>Audio</em> API<br />
+					Web <em>MIDI</em> API
+
+					<aside class="notes">
+						<ul>
+							<li>The Web Audio API and the Web MIDI API</li>
+							<li>integrate these amazing technologies to the web</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background-image="src/around-the-world-still.png" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>So to explore these technologies, let's make a song</li>
+							<li>Let's make Daft Punk's 1997 single, Around the World</li>
+							<li>For those in the audience, here's what it sounds like</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background-video="src/around-the-world.mov"  data-transition="fade">
+				</section>
+
+				<section data-background-color="rgb(255, 255, 255)">
+					<img src="src/keystep-pro.jpg" alt="Arturia KeyStep Pro MIDI controller" />
+					<aside class="notes">
+						<ul>
+							<li>Where do we start? Let's start with this, my Arturia KeyStep Pro</li>
+							<li>This is a MIDI controller and a sequencer. It looks like a keyboard, but it's not</li>
+							<li>This makes no sound of its own, it sends MIDI data to my computer</li>
+							<li>MIDI data tells computers, synthesisers, drum machines what notes to play</li>
+							<li>MIDI data is even used to control lighting and visual effects as well</li>
+							<li>MIDI is message passing, and nothing else</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Arturia KeyStep Pro</span></p>
+				</div>
+
+				<section>
+					<div class="debug-midi-event">
+
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Let's hook this up to our browser using the Web MIDI API</li>
+							<li>Then we can see what MIDI data looks like.</li>
+							<li>MIDI sends a lot of data, but the essential core is a set of three values</li>
+							<li>The first value is the status byte, often used to identify the control</li>
+							<li>Some controls have different values depending on context, such as keyup or keydown</li>
+							<li>The second is the data byte, which carries information such as the note pressed</li>
+							<li>Additional parameters follow, such as the velocity or the range of a knob</li>
+							<li>You don't need API documentation to use these values, and weirdly it makes them easier to understand</li>
+							<li>They are designed to be learned intuitively, and professional audio software works the same way</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background-image="src/oscillators.jpg"  data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Now that we know how to tell the computer to make a noise, we need to figure out how to make a noise</li>
+							<li>We need an oscillator! Oscillators are the part of the synthesiser that form the electronic signal</li>
+							<li>This is what the oscillator modules on my Matriarch look like</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Oscillators</span></p>
+				</div>
+
+				<section><h2><em>Oscillators</em> demo</h2></section>
+
+				<section><h2><em>Bassline</em> demo</h2></section>
+
+				<section data-background-image="src/synth-demo-filters-still.png"  data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Filters are used to quieten, remove and accentuate certain frequencies of sound</li>
+							<li>Often used in basslines</li>
+							<li>This video shows me patching an oscillator into a filter, and then into the output</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Filters</span></p>
+				</div>
+
+				<section data-background-video="src/synth-demo-filters.mp4"></section>
+
+				<section><h2><em>Bassline</em> demo</h2></section>
+
+				<section><h2><em>Lead</em> demo</h2></section>
+
+				<section data-background-image="src/synth-demo-lfos-still.png"  data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Low frequency oscillators or LFOs are not designed to make noise, but to modulate other sounds</li>
+							<li>This video shows me patching an LFO to the pitch of an oscillator for an accentuated tremolo / bassdrop effect</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Low-frequency oscillators</span></p>
+				</div>
+
+				<section data-background-video="src/synth-demo-lfos.mp4"></section>
+
+				<section><h2><em>Lead</em> demo</h2></section>
+
+				<section data-background-image="src/synth-demo-delays-still.png"  data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>A delay is an echo effect, like being underneath a brick arch bridge</li>
+							<li>It repeats the signal that's passed into it, often over and over</li>
+							<li>Here's what that sounds like on my Matriarch</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Delay</span></p>
+				</div>
+
+				<section data-background-video="src/synth-demo-delays.mp4"></section>
+
+				<section><h2><em>Lead</em> demo</h2></section>
+
+				<section>
+					<h2><em>Sample</em> demo</h2>
+					<aside class="notes">
+						<ul>
+							<li>Daft punk didn't use any samples in Around the World</li>
+							<li>but the drum machines they used were based on samples</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background-image="src/909.jpg" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>They used the Roland TR-909, which was made famous by the acid house scene</li>
+							<li>Which particularly prized the sound of its cymbals</li>
+							<li>Which were sampled from sound of real hi-hat and crash cymbals</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<span style="color: white;" class="image-credit">CC BY 2.0: j bizzie</span>
+					<p class="image-description"><span>Roland TR-909</span></p>
+				</div>
+
+				<section data-background-image="src/linn-drum-ln-2.jpg" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Daft Punk were also brining along a Linn Drum LN-2 to concerts</li>
+							<li>On careful listening, I'm fairly sure they're mixing and matching the LN-2's kick with the 909 cymbals</li>
+						  <li>The Linn Drum was famous for using samples for all its instruments</li>
+							<li>I'm sure they were going for an authentic, all-sample sound</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<span style="color: white;" class="image-credit">CC BY 3.0: Forat Electronics</span>
+					<p class="image-description"><span>Linn Drum LN-2</span></p>
+				</div>
+
+				<section data-background-image="src/tr-707.jpg" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>But there's another, crunchier, lo-fi drum sound too</li>
+							<li>I think this is the Roland TR-707, another sample-based drum machine</li>
+							<li>I think they've clipped the sound with a small envelope</li>
+							<li>To create a tight, punchy sound</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<span style="color: white;" class="image-credit">CC BY 3.0: Speculos</span>
+					<p class="image-description"><span>Roland TR-707</span></p>
+				</div>
+
+				<section>
+					<h2><em>Sample</em> demo</h2>
+				</section>
+
+				<section data-transition="fade">
+					<h2>Vocoder</h2>
+					<aside class="notes">
+						<ul>
+							<li>The most characteristic sound in the song is the robotic voice</li>
+							<li>This is the instrument that Daft Punk are most associated with</li>
+							<li>The vocoder</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade" data-background-image="src/microkorg.jpg">
+					<aside class="notes">
+						<ul>
+							<li>A vocoder is a voice controller that allows you to control the amplication of a synthesiser using your voice</li>
+							<li>It measures the sound of your voice at a range of frequencies, and uses that information to filter a synthesised noise source</li>
+							<li>Vocoders can be either dedicated instruments or be a feature of a complete synthesiser, as in the case of this Microkorg</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<span style="color: white;" class="image-credit">F J Degenaar</span>
+					<p class="image-description"><span>Korg Microkorg</span></p>
+				</div>
+
+				<section data-transition="fade" data-background-image="src/digitech-talker.jpg">
+					<aside class="notes">
+						<ul>
+							<li>In 2018 a Reddit user by the name Randy Goffe researched which vocoder Daft Punk used</li>
+							<li>He suggested they didn't use a vocoder, but a talk box guitar pedal, which works in the same way</li>
+							<li>We still have no hard evidence this is the case, but the results are convincing and Daft Punk were well known for using distortion pedals with their synthesisers</li>
+							<li>https://www.reddit.com/r/DaftPunk/comments/8tzlqr/after_8_years_ive_managed_to_figure_out_what/</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Digitech Talker</span></p>
+				</div>
+
+				<section data-background-iframe="https://webaudiodemos.appspot.com/Vocoder/#">
+					<aside class="notes">
+						<ul>
+							<li>Recreating the vocoder sound is much harder, far harder than I can live code</li>
+							<li>I re-used this Vocoder Demo by Chris Wilson, an engineer at Google</li>
+							<li>This uses about 500 lines of JavaScript, so I'll just show you what it does</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade">
+					<h2 class="r-fit-text">Demo</h2>
+				</section>
+
+				<section data-transition="fade" >
+					<h2><em>Web Audio API</em></h2>
+					<ul>
+						<li>Requires domain knowledge</li>
+						<li><em>Easy things are easy(ish)</em></li>
+						<li>Hard things are possible</li>
+						<li>Hard to know which is which</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Requires domain knowledge</li>
+							<li>Easy things are easy(ish)</li>
+							<li>Hard things are possible</li>
+							<li>Hard for a beginner to know which is which</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade" >
+					<h2><em>Web Audio API</em></h2>
+					<ul>
+						<li>"Serious" music production tools are unlikely</li>
+						<li>Excellent for <em>education</em> and <em>experimentation</em></li>
+						<li>Supported in Chrome, Edge, Safari and Firefox</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>"Serious" music production tools are unlikely</li>
+							<li>Excellent for educational and experimental roles</li>
+							<li>Supported in Chrome, Edge, Safari and Firefox</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background-iframe="https://tonejs.github.io/">
+					<aside class="notes">
+						<ul>
+							<li>If you want to dive in today, I'd recommend Tone.js</li>
+							<li>It's a framework for Web Audio API and is a goodie box for beginners</li>
+							<li>Noise oscillators, pulse oscillators, FM oscillators, pluck and membrane oscillators</li>
+							<li>Distortion, delay, phaser, chorus and reverb effects</li>
+							<li>Sequencer which was used to prototype this talk</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Tone.js</span></p>
+				</div>
+
+				<section data-transition="fade" >
+					<h2><em>Web MIDI API</em></h2>
+					<ul>
+						<li>MIDI is well supported in musical hardware</li>
+						<li><em>No support</em> in Firefox and Safari</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>MIDI is well supported in musical hardware</li>
+							<li>Utterly let down by lack of support in Firefox and Safari</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade" >
+					<h2><em>Web MIDI API</em></h2>
+					<ul>
+						<li>Excellent for <em>hobbyist development</em></li>
+						<li>"Serious" tools unlikely unless support improves</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Excellent for hobbyist development</li>
+							<li>"Serious" tools unlikely unless support improves</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade">
+					<h2>What if you want to get into <em>electronic music?</em></h2>
+				</section>
+
+				<section data-transition="fade">
+					<h3>Budget: <em>£0-100</em></h3>
+					<p>(Provided you have a computer)</p>
+				</section>
+
+				<section data-background-image="src/vcv-rack.jpg"  data-transition="fade"></section>
+				<div class="annotations">
+					<p class="image-description"><span>VCV Rack</span></p>
+				</div>
+
+				<section data-background-image="src/sonic-pi.png"  data-transition="fade"></section>
+				<div class="annotations">
+					<p class="image-description"><span>Sonic Pi</span></p>
+				</div>
+
+				<section  data-transition="fade">
+					<h3>Budget: <em>£100-400</em></h3>
+				</section>
+
+				<section data-background-image="src/volca.jpg"  data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Korg Volca series</li>
+							<li>Korg make a range of small inexpensive synths, this is the Volca FM</li>
+							<li>You can also get subtractive synths, bass synths, drum machines and samplers</li>
+							<li>About £120 each</li>
+							<li>So much more than a toy! People buy the full range and make serious music on them</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Korg Volca series</span></p>
+				</div>
+
+				<section data-background-image="src/microfreak.jpg"  data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Arturia Microfreak</li>
+							<li>Around £300</li>
+							<li>Ideal 16th birthday present</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Arturia Microfreak</span></p>
+				</div>
+
+				<section  data-transition="fade">
+					<h3>Budget: <em>£400-1000</em></h3>
+				</section>
+
+				<section data-background-image="src/minibrute.jpg"  data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Arturia Minibrute 2</li>
+							<li>About £400</li>
+							<li>Semi-modular monosynth</li>
+							<li>Patch bay is like an API for your synth</li>
+							<li>Compatible with a massive range of EuroRack modules</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Arturia Minibrute 2</span></p>
+				</div>
+
+				<section data-background-image="src/minilogue.png" data-background-color="#111111"  data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Korg Minilogue xd</li>
+							<li>Polysynth packed with features</li>
+							<li>Subtractive and FM oscillators</li>
+							<li>Delay and reverb effects</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Korg Minilogue xd</span></p>
+				</div>
+
+				<section  data-transition="fade">
+					<h3>Audio Interface</h3>
+				</section>
+
+				<section data-background-image="src/focusright.png"  data-transition="fade" class="extra-slow-transition"></section>
+				<div class="annotations">
+					<p class="image-description"><span>Focusright Solo</span></p>
+				</div>
+
+				<section data-background-color="rgb(0, 0, 0)" data-background-image="src/dave-smith.jpg"  data-transition="fade" data-transition-speed="fast" class="extra-slow-transition">
+					<aside class="notes">
+						<ul>
+							<li>Dave Smith was an engineer and founder of Sequential</li>
+							<li>Creator of the Prophet 5, a famous polyphonic synthesiser</li>
+							<li>Together with the president of Roland, Ikutaro Kakehashi, they created MIDI</li>
+							<li>To this day, MIDI remains unlicensed. No fees have ever been collected.</li>
+							<li>This has led to its widespread adoption and near-universal compatibility</li>
+							<li>Whole industries and artforms exist because of MIDI, and it remains easy to use for beginners and experts alike</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Dave Smith 1950-2022</span></p>
+				</div>
+
+				<section data-background-color="rgb(0, 0, 0)" data-transition-speed="slow" class="extra-slow-transition">
+					<aside class="notes">
+						<ul>
+							<li>Does that sound familiar to you?</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section  data-background-color="rgb(0, 0, 0)" data-background-image="src/timbo.jpg"  data-transition="fade" data-transition-speed="slow" class="extra-slow-transition">
+					<aside class="notes">
+						<ul>
+							<li>If you were thinking about the web, you'd be right</li>
+							<li>Since its creation, Tim Berners-Lee has not collected any fees for creating the world wide web</li>
+							<li>Free and open standards create wealth for all of us. The web has changed our lives for the better</li>
+							<li>It's critical that the web remains free, open, and endures as the software platform of common good</li>
+							<li>MIDI and the web are naturally allied to each other, and deserve to endure together</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description"><span>Tim Berners-Lee</span></p>
+				</div>
+
+				<section data-transition="fade" data-transition-speed="slow" class="extra-slow-transition">
+					<div style="float: left; margin-top: 100px;">
+						<h2><em>Thank you</em></h2>
+						<p>CC: BY-SA 3.0</p>
+					</div>
+					<img src="src/bashir-obrien.gif" alt="Bashir and O'Brien from Deep Space Nine drinking whisky and saying 'Wow', 'Wow is right'" style="width: 480px; float: right; border: 4px solid black; filter: drop-shadow(0 0 0.75rem black);" />
+				</section>
 			</div>
 		</div>
 
@@ -25,13 +697,14 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script type="module" src="src/index.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
+				backgroundTransition: 'fade',
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
