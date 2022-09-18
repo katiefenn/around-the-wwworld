@@ -1,4 +1,4 @@
-// Start context
+// Create new AudioContext
 
 
 // Create an OscillatorNode with context and type sine
@@ -22,7 +22,7 @@
 
 
 handleMIDI = midiData => {
-  const end = context.currentTime + 0.005;
+  let end = context.currentTime + 0.005;
 
   if (isKeyDown(midiData)) {
     // Set oscillator frequency to midiData.input

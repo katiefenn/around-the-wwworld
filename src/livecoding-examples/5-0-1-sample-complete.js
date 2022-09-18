@@ -1,6 +1,3 @@
-// Create new AudioContext
-const context = new AudioContext();
-
 // Fetch /src/samples/Clap.wav
 let clapBuffer = await fetch('/src/samples/Clap.wav')
   // ...then resolve response to an ArrayBuffer
@@ -11,7 +8,7 @@ let clapBuffer = await fetch('/src/samples/Clap.wav')
 function playSample (context, buffer) {
     // Create new AudioBufferSourceNode and
     // assign buffer to the source node buffer
-    const source = new AudioBufferSourceNode(context, { buffer });
+    let source = new AudioBufferSourceNode(context, { buffer });
     // Connect the source node to the destination
     source.connect(context.destination);
     // Start the source node
@@ -19,7 +16,7 @@ function playSample (context, buffer) {
 }
 
 handleMIDI = midiData => {
-  const end = context.currentTime + 0.1
+  let end = context.currentTime + 0.1
   if (isKeyDown(midiData)) {
     // Call playSample can pass in context and buffer
     playSample(context, clapBuffer)

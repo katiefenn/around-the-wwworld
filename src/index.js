@@ -11,7 +11,7 @@ midiAccess.start();
 
 // Start global AudioContext
 document.querySelector('#restart-audio-context').addEventListener('click', event => {
-  window.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  window.context = new (window.AudioContext || window.webkitAudioContext)();
   event.target.remove()
 });
 

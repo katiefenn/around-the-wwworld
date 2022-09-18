@@ -1,8 +1,9 @@
 :root {
   --primary-background-colour: white;
   --primary-highlight-colour: black;
-  --primary-foreground-color: black;
-  --inverted-foreground-color: white;
+  --primary-foreground-color: #444444;
+  --inverted-foreground-color: #dddddd;
+  --inverted-highlight-color: #ffffff;
 }
 
 #restart-audio-context {
@@ -40,8 +41,13 @@ section {
   color: var(--primary-foreground-color);
 }
 
-.title-slide, .title-slide h1, .reveal .title-slide em {
+.title-slide, .title-slide h1 {
   color: var(--inverted-foreground-color);
+}
+
+.reveal .title-slide em {
+  color: var(--inverted-highlight-color);
+  font-weight: bold;
 }
 
 .title-slide video:first-of-type {
@@ -108,6 +114,7 @@ section {
 }
 
 .image-description-wrapper .image-description {
+  color: var(--primary-highlight-colour);
   font-style: italic;
   font-weight: bold;
   font-size: 40px;

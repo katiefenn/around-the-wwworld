@@ -1,6 +1,3 @@
-// Create new AudioContext
-const context = new AudioContext();
-
 // Fetch /src/samples/Clap.wav
 
   // ...then resolve response to an ArrayBuffer
@@ -19,9 +16,9 @@ function playSample (context, buffer) {
 }
 
 handleMIDI = midiData => {
-  const end = context.currentTime + 0.1
+  let end = context.currentTime + 0.1
   if (isKeyDown(midiData)) {
     // Call playSample can pass in context and buffer
-
+    playSample(context, clapBuffer)
   }
 }

@@ -1,35 +1,23 @@
-
-const context = new AudioContext();
-
-
-const oscillator = new OscillatorNode(context, {
+let oscillator = new OscillatorNode(context, {
   type: "sawtooth"
 });
 
 
-const gainNode = new GainNode(context);
+let gain = new GainNode(context, { gain: 0 });
 
-
-gainNode.gain.value = 0;
-
-// Create a new BiquadFilterNode
-
-
-// Set filter.frequency to 144Hz
+// Create a new BiquadFilterNode and set frequency to 144
 
 
 // Connect oscillator to filter
-// and filter to gainNode
-oscillator.connect(gainNode)
-
-
-gainNode.connect(context.destination);
-
+// and filter to gain
+oscillator.connect(filter);
+filter.connect(gain)
+gain.connect(context.destination);
 
 oscillator.start();
 
 handleMIDI = midiData => {
-  const end = context.currentTime + 0.005;
+  let end = context.currentTime + 0.005;
 
   if (isKeyDown(midiData)) {
 
@@ -37,9 +25,9 @@ handleMIDI = midiData => {
     oscillator.frequency.value = midiToFrequency(midiData.input);
 
 
-    gainNode.gain.linearRampToValueAtTime(1, end);
+    gain.gain.linearRampToValueAtTime(1, end);
   } else {
 
-    gainNode.gain.linearRampToValueAtTime(0, end);
+    gain.gain.linearRampToValueAtTime(0, end);
   }
 }

@@ -1,4 +1,4 @@
-// Request MIDI access from navigator
+// request MIDI Access from navigator, then...
 navigator.requestMIDIAccess().then(access => {
 
 // Iterate through access.inputs.values

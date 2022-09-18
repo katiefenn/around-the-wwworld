@@ -18,7 +18,17 @@
 		<button id="restart-audio-context">Restart Audio Context</button>
 		<div class="reveal">
 			<div class="slides">
-				<section></section>
+				<section data-background-color="rgb(0, 0, 0)">
+					<aside class="notes">
+						Pre-launch checklist
+						<ul>
+							<li>Audio context started</li>
+							<li>Audio out tested</li>
+							<li>Project 5 selected</li>
+							<li>Display mirroring on</li>
+						</ul>
+					</aside>
+				</section>
 				<section data-background-video="src/around-the-world-slow.mp4" data-background-video-loop="true" data-transition="fade" class="title-slide" data-background-color="rgb(0, 0, 0)">
 					<h1 class="r-fit-text" style="font-family: Gputeks;">
 						Around the <em>WWW</em>orld
@@ -42,7 +52,9 @@
 				</section>
 
 				<section data-transition="fade">
-					I really like <em>Daft Punk</em><br />
+					<p class="r-fit-text">
+						I really like <em>Daft Punk</em><br />
+					</p>
 					<small>(but you don't have to like Daft Punk)</small>
 
 					<aside class="notes">
@@ -130,14 +142,14 @@
 				<section data-background-image="src/synthesiser.jpg"  data-transition="fade">
 					<aside class="notes">
 						<ul>
-							<li>Synthesisers like the Juno 106 are built on subtractive synthesis</li>
+							<li>Synthesisers like the Juno 106 are built on analogue synthesis</li>
 							<li>Famously pioneered by Bob Moog, creator of the Minimoog symthesiser</li>
 							<li>This is my Moog Matriarch synthesiser, which works on the same principle</li>
 						</ul>
 					</aside>
 				</section>
 				<div class="annotations">
-					<p class="image-description"><span>Subtractive Synthesis</span></p>
+					<p class="image-description"><span>Analogue Synthesis</span></p>
 				</div>
 
 				<section data-background-image="src/synth-demo-oscillators-still.png" data-transition="fade">
@@ -240,7 +252,8 @@
 					<aside class="notes">
 						<ul>
 							<li>The Web Audio API and the Web MIDI API</li>
-							<li>integrate these amazing technologies to the web</li>
+							<li>integrate analogue synthesis and MIDI to the web</li>
+							<li>These APIs are mere footnotes compared to our everyday work, but they're very powerful</li>
 						</ul>
 					</aside>
 				</section>
@@ -258,7 +271,7 @@
 				<section data-background-video="src/around-the-world.mov"  data-transition="fade">
 				</section>
 
-				<section data-background-color="rgb(255, 255, 255)">
+				<section data-background-color="rgb(255, 255, 255)" data-transition="fade">
 					<img src="src/keystep-pro.jpg" alt="Arturia KeyStep Pro MIDI controller" />
 					<aside class="notes">
 						<ul>
@@ -275,7 +288,7 @@
 					<p class="image-description"><span>Arturia KeyStep Pro</span></p>
 				</div>
 
-				<section>
+				<section data-transition="fade">
 					<div class="debug-midi-event">
 
 					</div>
@@ -307,11 +320,11 @@
 					<p class="image-description"><span>Oscillators</span></p>
 				</div>
 
-				<section><h2><em>Oscillators</em> demo</h2></section>
+				<section data-transition="fade"><h2><em>Oscillators</em> demo</h2></section>
 
-				<section><h2><em>Bassline</em> demo</h2></section>
+				<section data-transition="fade"><h2><em>Bassline</em> demo</h2></section>
 
-				<section data-background-image="src/synth-demo-filters-still.png"  data-transition="fade">
+				<section data-background-image="src/synth-demo-filters-still.png" data-transition="fade">
 					<aside class="notes">
 						<ul>
 							<li>Filters are used to quieten, remove and accentuate certain frequencies of sound</li>
@@ -324,11 +337,11 @@
 					<p class="image-description"><span>Filters</span></p>
 				</div>
 
-				<section data-background-video="src/synth-demo-filters.mp4"></section>
+				<section data-background-video="src/synth-demo-filters.mp4" data-transition="fade"></section>
 
-				<section><h2><em>Bassline</em> demo</h2></section>
+				<section data-transition="fade"><h2><em>Bassline</em> demo</h2></section>
 
-				<section><h2><em>Lead</em> demo</h2></section>
+				<section data-transition="fade"><h2><em>Lead</em> demo</h2></section>
 
 				<section data-background-image="src/synth-demo-lfos-still.png"  data-transition="fade">
 					<aside class="notes">
@@ -342,9 +355,9 @@
 					<p class="image-description"><span>Low-frequency oscillators</span></p>
 				</div>
 
-				<section data-background-video="src/synth-demo-lfos.mp4"></section>
+				<section data-background-video="src/synth-demo-lfos.mp4" data-transition="fade"></section>
 
-				<section><h2><em>Lead</em> demo</h2></section>
+				<section data-transition="fade"><h2><em>Lead</em> demo</h2></section>
 
 				<section data-background-image="src/synth-demo-delays-still.png"  data-transition="fade">
 					<aside class="notes">
@@ -359,11 +372,11 @@
 					<p class="image-description"><span>Delay</span></p>
 				</div>
 
-				<section data-background-video="src/synth-demo-delays.mp4"></section>
+				<section data-background-video="src/synth-demo-delays.mp4" data-transition="fade"></section>
 
-				<section><h2><em>Lead</em> demo</h2></section>
+				<section data-transition="fade"><h2><em>Lead</em> demo</h2></section>
 
-				<section>
+				<section data-transition="fade">
 					<h2><em>Sample</em> demo</h2>
 					<aside class="notes">
 						<ul>
@@ -502,6 +515,7 @@
 					<aside class="notes">
 						<ul>
 							<li>"Serious" music production tools are unlikely</li>
+							<li>Don't have the same production tools, mixing power and effects that Logic and Ableton have</li>
 							<li>Excellent for educational and experimental roles</li>
 							<li>Supported in Chrome, Edge, Safari and Firefox</li>
 						</ul>
@@ -552,6 +566,49 @@
 				</section>
 
 				<section data-transition="fade">
+					<h2 class="r-fit-text">
+						What the Web <em>does best</em>
+					</h2>
+
+					<aside class="notes">
+						<ul>
+							<li>So what does the web do best?</li>
+							<li>Should we be thinking of integrating the web audio API into our sites?</li>
+							<li>Is it suited for "serious" web-based production tools?</li>
+							<li>Well, no. Enterprise packages like Ableton and Logic won't be re-written in JS</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade" data-background-image="src/circuit-bending.jpeg">
+					<aside class="notes">
+						<ul>
+							<li>But there is a huge community of hobbyist and experimental musicians, including circuit benders.</li>
+							<li>Circuit benders make electronic music using scrap, toys, and broken synthesisers.</li>
+							<li>If they can make music out of rubbish, you can bet someone can make something cool with a web browser</li>
+							<li>What makes MIDI so great is that it is used by practically everyone, amateurs and professionals alike.</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description">Experimental music</p>
+					<span style="color: white;" class="image-credit">CC BY 2.0: Rosa Menkman</span>
+				</div>
+
+				<section data-transition="fade">
+					<h2>Web 🖤 MIDI</h2>
+					<aside class="notes">
+						<ul>
+							<li>The web should be the software platform of the amateur, the hobbyist,</li>
+							<li>the auteurs doing something nobody has ever conceived of before.</li>
+							<li>The web's compatibility, its ubiquity, its accessibility and its approachability make it the ideal creative platform</li>
+							<li>This is a call to Apple to find a way to support Web MIDI on iPads and iPhones</li>
+							<li>The web and MIDI belong together</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-transition="fade">
 					<h2>What if you want to get into <em>electronic music?</em></h2>
 				</section>
 
@@ -579,7 +636,7 @@
 						<ul>
 							<li>Korg Volca series</li>
 							<li>Korg make a range of small inexpensive synths, this is the Volca FM</li>
-							<li>You can also get subtractive synths, bass synths, drum machines and samplers</li>
+							<li>You can also get analogue synths, bass synths, drum machines and samplers</li>
 							<li>About £120 each</li>
 							<li>So much more than a toy! People buy the full range and make serious music on them</li>
 						</ul>
@@ -688,7 +745,7 @@
 						<h2><em>Thank you</em></h2>
 						<p>CC: BY-SA 3.0</p>
 					</div>
-					<img src="src/bashir-obrien.gif" alt="Bashir and O'Brien from Deep Space Nine drinking whisky and saying 'Wow', 'Wow is right'" style="width: 480px; float: right; border: 4px solid black; filter: drop-shadow(0 0 0.75rem black);" />
+					<img src="src/bashir-obrien.gif" alt="Bashir and O'Brien from Deep Space Nine drinking whisky, wincing, and saying 'Wow', 'Wow is right'" style="width: 480px; float: right; border: 4px solid black; filter: drop-shadow(0 0 0.75rem black);" />
 				</section>
 			</div>
 		</div>

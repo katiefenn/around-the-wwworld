@@ -1,5 +1,4 @@
-
-// Request MIDI access from navigator
+// Request MIDI access from navigator, then...
 
 
 // Iterate through access.inputs.values
