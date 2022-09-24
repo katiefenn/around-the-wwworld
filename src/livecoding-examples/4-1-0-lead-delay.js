@@ -43,12 +43,12 @@ oscillator.connect(filter)
 // Connect filter to gain
 filter.connect(gain)
 
-// Create DelayNode and GainNode for 0.3 time, 0.2 gain and connect
+// Create DelayNode and GainNode for 0.3 delayTime, 0.2 gain and connect
 
 
 
 
-// Create DelayNode and GainNode for 0.6 time, 0.1 gain and connect
+// Create DelayNode and GainNode for 0.6 delayTime, 0.1 gain and connect
 
 
 
@@ -56,7 +56,7 @@ filter.connect(gain)
 // Connect gain to context.destination
 gain.connect(context.destination)
 
-// Connect filter to delay1 and delay2
+// Connect gain to delay1 and delay2
 
 
 

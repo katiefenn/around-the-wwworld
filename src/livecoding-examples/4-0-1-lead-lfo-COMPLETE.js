@@ -1,4 +1,5 @@
 // Create a pulse oscillator
+// PulseOscillator from Andy Harman
 let oscillator = createPulseOscillator(context);
 // Adjust the width value to 0.01
 oscillator.width.value=0.01;

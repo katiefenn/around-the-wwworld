@@ -168,3 +168,7 @@ section.present + .annotations .image-description-wrapper {
 .reveal .extra-slow-transition {
   transition: all 4s cubic-bezier(.26,.86,.44,.985);
 }
+
+.debug-midi-event {
+  font-size: 100px;
+}

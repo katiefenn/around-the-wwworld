@@ -43,12 +43,12 @@ oscillator.connect(filter)
 // Connect filter to gain
 filter.connect(gain)
 
-// Create DelayNode and GainNode for 0.3 time, 0.2 gain and connect
+// Create DelayNode and GainNode for 0.3 delayTime, 0.2 gain and connect
 let delay1 = new DelayNode(context, { delayTime: 0.3 });
 let delay1Gain = new GainNode(context, { gain: 0.2 });
 delay1.connect(delay1Gain);
 
-// Create DelayNode and GainNode for 0.6 time, 0.1 gain and connect
+// Create DelayNode and GainNode for 0.6 delayTime, 0.1 gain and connect
 let delay2 = new DelayNode(context, { delayTime: 0.6 });
 let delay2Gain = new GainNode(context, { gain: 0.1 });
 delay2.connect(delay2Gain);
@@ -56,7 +56,7 @@ delay2.connect(delay2Gain);
 // Connect gain to context.destination
 gain.connect(context.destination)
 
-// Connect filter to delay1 and delay2
+// Connect gain to delay1 and delay2
 gain.connect(delay1);
 gain.connect(delay2);
 
