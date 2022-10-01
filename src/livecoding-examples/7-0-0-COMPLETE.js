@@ -15,7 +15,7 @@ let isControlChannel = d => d.type === 176;
 
 let getGlobalFilterFreq = midiVal => (midiVal / 127) * 10000;
 let globalFilter = new BiquadFilterNode(context);
-globalFilter.frequency.value = getGlobalFilterFreq(1);
+globalFilter.frequency.value = getGlobalFilterFreq(127);
 
 let globalGain = new GainNode(context);
 globalGain.gain.value = 1;

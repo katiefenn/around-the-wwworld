@@ -139,21 +139,6 @@
 					<p class="image-description"><span>Roland Juno 106</span></p>
 				</div>
 
-				<!--
-				<section data-background-image="src/synthesiser.jpg"  data-transition="fade">
-					<aside class="notes">
-						<ul>
-							<li>Synthesisers like the Juno 106 are built on analogue synthesis</li>
-							<li>Famously pioneered by Bob Moog, creator of the Minimoog symthesiser</li>
-							<li>This is my Moog Matriarch synthesiser, which works on the same principle</li>
-						</ul>
-					</aside>
-				</section>
-				<div class="annotations">
-					<p class="image-description"><span>Analogue Synthesis</span></p>
-				</div>
-				-->
-
 				<section data-transition="fade">
 					<aside class="notes">
 						<ul>
@@ -226,8 +211,8 @@
 				</div>
 
 				<section data-transition="fade">
-					Web <em>Audio</em> API<br />
-					Web <em>MIDI</em> API
+					<h2>Web <em>Audio</em> API</h2><br />
+					<h2>Web <em>MIDI</em> API</h2>
 
 					<aside class="notes">
 						<ul>
@@ -287,16 +272,31 @@
 					</aside>
 				</section>
 
-				<section data-background-image="src/oscillators.jpg"  data-transition="fade">
+				<section data-background-image="src/web-audio-model.png"  data-transition="fade">
 					<aside class="notes">
 						<ul>
 							<li>Now that we know how to tell the computer to make a noise, we need to figure out how to make a noise</li>
-							<li>We need an oscillator! This is what the oscillator modules on my own synthesiser look like</li>
+							<li>This is what the Web Audio API is for.</li>
+							<li>The workflow for the web audio API works by connecting nodes together</li>
+							<li>You're going to see me write a lot of this code, but this is what it boils down to</li>
+							<li>This workflow models the way a hardware sythesiser does</li>
 						</ul>
 					</aside>
 				</section>
 				<div class="annotations">
-					<p class="image-description"><span>Oscillators</span></p>
+					<p class="image-description">Web Audio API Workflow</p>
+				</div>
+
+				<section  data-background-video="src/modular-patching.mp4" data-transition="fade">
+					<aside class="notes">
+						<ul>
+							<li>Where you patch an oscillator into the output to make a noise</li>
+							<li>So, let's start with oscillator</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description">Patching a modular synthesiser</p>
 				</div>
 
 				<section data-background-image="src/synth-demo-oscillators-still.png" data-transition="fade">
@@ -400,7 +400,7 @@
 					<span style="color: white;" class="image-credit">CC BY 2.0: j bizzie</span>
 					<p class="image-description"><span>Roland TR-909</span></p>
 				</div>
-
+				<!--
 				<section data-background-image="src/linn-drum-ln-2.jpg" data-transition="fade">
 					<aside class="notes">
 						<ul>
@@ -415,6 +415,7 @@
 					<span style="color: white;" class="image-credit">CC BY 3.0: Forat Electronics</span>
 					<p class="image-description"><span>Linn Drum LN-2</span></p>
 				</div>
+				-->
 				<!--
 				<section data-background-image="src/tr-707.jpg" data-transition="fade">
 					<aside class="notes">
@@ -432,7 +433,7 @@
 				</div>
 				-->
 
-				<section>
+				<section data-transition="fade" >
 					<h2><em>Sample</em> demo</h2>
 				</section>
 
@@ -496,6 +497,12 @@
 
 				<section data-transition="fade">
 					<h2 class="r-fit-text">Demo</h2>
+					<aside class="notes">
+						<ul>
+							<li>Reminder: While I am using the MIDI controller to cue the sounds</li>
+							<li>It is the browser that is making all the sounds you are hearing</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section data-transition="fade" >
@@ -533,7 +540,7 @@
 					</aside>
 				</section>
 
-				<section data-background-iframe="https://tonejs.github.io/">
+				<section data-transition="fade" data-background-image="src/tone-js.png">
 					<aside class="notes">
 						<ul>
 							<li>If you want to dive in today, I'd recommend Tone.js</li>
@@ -553,25 +560,13 @@
 					<ul>
 						<li>MIDI is well supported in musical hardware</li>
 						<li><em>No support</em> in Firefox and Safari</li>
+						<li>Excellent for <em>hobbyist development</em></li>
 					</ul>
 					<aside class="notes">
 						<ul>
 							<li>MIDI is well supported in musical hardware</li>
 							<li>Utterly let down by lack of support in Firefox and Safari</li>
-						</ul>
-					</aside>
-				</section>
-
-				<section data-transition="fade" >
-					<h2><em>Web MIDI API</em></h2>
-					<ul>
-						<li>Excellent for <em>hobbyist development</em></li>
-						<li>"Serious" tools unlikely unless support improves</li>
-					</ul>
-					<aside class="notes">
-						<ul>
 							<li>Excellent for hobbyist development</li>
-							<li>"Serious" tools unlikely unless support improves</li>
 						</ul>
 					</aside>
 				</section>
@@ -619,6 +614,7 @@
 					</aside>
 				</section>
 
+				<!--
 				<section data-transition="fade">
 					<h2>What if you want to get into <em>electronic music?</em></h2>
 				</section>
@@ -637,7 +633,8 @@
 				<div class="annotations">
 					<p class="image-description"><span>Sonic Pi</span></p>
 				</div>
-
+				-->
+				<!--
 				<section  data-transition="fade">
 					<h3>Budget: <em>£100-400</em></h3>
 				</section>
@@ -702,7 +699,8 @@
 				<div class="annotations">
 					<p class="image-description"><span>Korg Minilogue xd</span></p>
 				</div>
-
+			  -->
+				<!--
 				<section  data-transition="fade">
 					<h3>Audio Interface</h3>
 				</section>
@@ -711,6 +709,7 @@
 				<div class="annotations">
 					<p class="image-description"><span>Focusright Solo</span></p>
 				</div>
+				-->
 
 				<section data-background-color="rgb(0, 0, 0)" data-background-image="src/dave-smith.jpg"  data-transition="fade" data-transition-speed="fast" class="extra-slow-transition">
 					<aside class="notes">
@@ -756,7 +755,7 @@
 						<h2><em>Thank you</em></h2>
 						<p>CC: BY-SA 3.0</p>
 					</div>
-					<img src="src/bashir-obrien.gif" alt="Bashir and O'Brien from Deep Space Nine drinking whisky, wincing, and saying 'Wow', 'Wow is right'" style="width: 480px; float: right; border: 4px solid black; filter: drop-shadow(0 0 0.75rem black);" />
+					<img src="src/dax-kira.gif" alt="Dax and Kira from Star Trek Deep Space Nine. Kira is looking at Dax having sipped a drink and saying 'not bad...'" style="width: 480px; float: right; border: 4px solid black; filter: drop-shadow(0 0 0.75rem black);" />
 				</section>
 			</div>
 		</div>
