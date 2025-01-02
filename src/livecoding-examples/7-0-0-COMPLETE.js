@@ -6,7 +6,7 @@ let clapBuffer = await fetch('http://localhost:8000/src/samples/Clap.wav').then(
 let clap707Buffer = await fetch('http://localhost:8000/src/samples/Clap-707.wav').then(resp => resp.arrayBuffer()).then(buffer => context.decodeAudioData(buffer));
 let hatBuffer = await fetch('http://localhost:8000/src/samples/HighHat.wav').then(resp => resp.arrayBuffer()).then(buffer => context.decodeAudioData(buffer));
 let hat707Buffer = await fetch('http://localhost:8000/src/samples/HighHat-707.wav').then(resp => resp.arrayBuffer()).then(buffer => context.decodeAudioData(buffer));
-let vocoderBuffer = await fetch('http://localhost:8000/src/samples/Vocoder.wav').then(resp => resp.arrayBuffer()).then(buffer => context.decodeAudioData(buffer));
+let vocoderBuffer = await fetch('http://localhost:8000/src/samples/Vocoder-talkie.wav').then(resp => resp.arrayBuffer()).then(buffer => context.decodeAudioData(buffer));
 
 let isKeyUpOrKeyDown = d => d.type >= 128 && d.type < 160;
 let getMidiChannel = d => d.type % 16;
@@ -20,15 +20,15 @@ globalFilter.frequency.value = getGlobalFilterFreq(127);
 let globalGain = new GainNode(context);
 globalGain.gain.value = 1;
 
-let bassMix = 0.4;
-let leadMix = 0.7;
-let backingMix = 0.9;
-let kickMix = 1.5;
-let hatMix = 0.9;
-let clapMix = 0.9;
+let bassMix = 0.3;
+let leadMix = 0.3;
+let backingMix = 0.4;
+let kickMix = 0.7;
+let hatMix = 1;
+let clapMix = 0.6;
 let hat707Mix = 0.9;
 let clap707Mix = 0.9;
-let vocoderMix = 0.8;
+let vocoderMix = 0.05;
 
 class Lead {
   constructor (context) {
@@ -93,11 +93,6 @@ class Bass {
       frequency: (1.7 / 127) * 10800
     });
 
-    let filter2 = new BiquadFilterNode(context, {
-      type: "lowpass",
-      frequency: (1.7 / 127) * 10800
-    });
-
     let gainNode1 = context.createGain();
     gainNode1.gain.setValueAtTime(0, context.currentTime);
 
@@ -110,8 +105,7 @@ class Bass {
     oscillator1.start();
 
     oscillator2.connect(gainNode2);
-    gainNode2.connect(filter2);
-    filter2.connect(globalFilter);
+    gainNode2.connect(filter1);
     oscillator2.start();
 
     let noteStack = [];
@@ -121,6 +115,7 @@ class Bass {
         if (noteStack.length < 1) {
           gainNode1.gain.linearRampToValueAtTime(0.30 * bassMix, context.currentTime + 0.005);
           gainNode2.gain.linearRampToValueAtTime(((8 / 127) * 1) * bassMix, context.currentTime + 0.005)
+          filter1.frequency.linearRampToValueAtTime((2 / 127) * 10800, context.currentTime + 0.5)
         }
 
         noteStack.push(midiData.input);
@@ -129,6 +124,7 @@ class Bass {
         if (noteStack.length < 1) {
           gainNode1.gain.linearRampToValueAtTime(0, context.currentTime + 0.005);
           gainNode2.gain.linearRampToValueAtTime(0, context.currentTime + 0.005);
+          filter1.frequency.value = (1.7 / 127) * 10800;
         }
       }
 
@@ -254,7 +250,7 @@ class Noise {
       noise.start();
 
       if (isKeyDown(midiData)) {
-        gainNode.gain.linearRampToValueAtTime(4, context.currentTime + 0.005);
+        gainNode.gain.linearRampToValueAtTime(1, context.currentTime + 0.005);
         gainNode.gain.linearRampToValueAtTime(0, context.currentTime + 1);
         lpf.frequency.linearRampToValueAtTime(1500, context.currentTime + 0.5);
         hpf.frequency.linearRampToValueAtTime(20000, context.currentTime + 2);

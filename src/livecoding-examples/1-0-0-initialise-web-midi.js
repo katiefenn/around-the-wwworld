@@ -1,4 +1,4 @@
-// Request MIDI access from navigator, then...
+// await MIDI Access from navigator
 
 
 // Iterate through access.inputs.values
@@ -10,4 +10,12 @@
 // Set device.onmidimessage to a callback
 
 
-// Set .debug-midi-event innerText to message.data
+// Create normal Array "data" from Uint8Array
+
+
+// Set .debug-midi-event innerText to message.data.slice(0, 3)
+
+
+    }
+  }
+}

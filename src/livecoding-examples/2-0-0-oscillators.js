@@ -1,21 +1,18 @@
 // Create new AudioContext
 
 
-// Create an OscillatorNode with context and type sine
+// Create an OscillatorNode with context and type sawtooth
 
 
 
 
-// Create new GainNode
+// Create new GainNode and set gain value to 0
 
 
-// Set gain to 0
+// Connect oscillator to gain
 
 
-// Connect oscillator to gainNode
-
-
-// Connect gainNode to context.destination
+// Connect gain to context.destination
 
 
 // Start oscillator
@@ -25,8 +22,8 @@ handleMIDI = midiData => {
   let end = context.currentTime + 0.005;
 
   if (isKeyDown(midiData)) {
-    // Set oscillator frequency to midiData.input
-    // using midiToFrequency
+    // Set oscillator frequency value to
+    // midiData.input using midiToFrequency
 
 
     // Use linearRampToValueAtTime to ramp gain to 1

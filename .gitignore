@@ -10,3 +10,4 @@ tmp/**
 node_modules/
 .sass-cache
 src/synth-demo-oscillators.mp4
+discarded-recordings/

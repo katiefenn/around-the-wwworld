@@ -54,7 +54,7 @@ handleMIDI = midiData => {
   let end = context.currentTime + 0.1
   if (isKeyDown(midiData)) {
     oscillator.frequency.value = midiToFrequency(midiData.input);
-    gain.gain.linearRampToValueAtTime(0.07, end);
+    gain.gain.linearRampToValueAtTime(1, end);
   } else {
     gain.gain.linearRampToValueAtTime(0, end);
   }

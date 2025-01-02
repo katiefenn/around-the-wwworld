@@ -18,8 +18,8 @@ document.querySelector('#restart-audio-context').addEventListener('click', event
 const isKeyUpOrKeyDown = d => d.type >= 128 && d.type < 160;
 window.isKeyDown = d => isKeyUpOrKeyDown(d) && d.type >= 144;
 
-window.midiToFrequency = await import('http://localhost:8000/src/midi-to-frequency.js').then(m => m.default);
-window.createPulseOscillator = await import('http://localhost:8000/src/pulse-oscillator.js').then(m => m.default);
+window.midiToFrequency = await import('/src/midi-to-frequency.js').then(m => m.default);
+window.createPulseOscillator = await import('/src/pulse-oscillator.js').then(m => m.default);
 
 Array.from(document.querySelectorAll('.image-description')).forEach(element => { const wrappedElement = `<div class="image-description-wrapper">${element.outerHTML}</div>`; element.outerHTML = wrappedElement; })
 Array.from(document.querySelectorAll('.image-description-wrapper')).forEach(element => { const background = document.createElement('div'); background.classList.add('image-description-background'); element.prepend(background) })

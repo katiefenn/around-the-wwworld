@@ -40,13 +40,14 @@
 
 				<section id="name-slide" data-background-video="src/around-the-world-slow.mp4" data-background-video-loop="true" data-transition="fade" class="title-slide" data-background-color="rgb(0, 0, 0)">
 					Hi I'm <em>Katie</em><br />
-					<small>@katie_fenn</small>
+					<small>@katie_fenn</small><br />
+					<small>Content warning: Loud electronic music</small>
 
 					<aside class="notes">
 						<ul>
 							<li>Hi, I'm Katie.</li>
-							<li>I work at the Financial Times as a tech lead.</li>
-							<li>I've also worked at a bunch of places including Monzo and NPM.</li>
+							<li>I'm a senior developer at the Financial Times.</li>
+							<li>Content warning: Loud electronic music</li>
 						</ul>
 					</aside>
 				</section>
@@ -74,9 +75,10 @@
 					<aside class="notes">
 						<ul>
 							<li>Promise.</li>
-							<li>Limmy: "Check out Daft Punk's new single Get Lucky... sound of the summer"</li>
 							<li>This talk isn't about Daft Punk</li>
 							<li>It's more about the technology of electronic music</li>
+							<li>A whirlwind tour of what the Web Audio and Web MIDI APIs are capable of</li>
+							<li>and a reflection on what the web is for</li>
 						</ul>
 					</aside>
 				</section>
@@ -142,7 +144,6 @@
 				<section data-transition="fade">
 					<aside class="notes">
 						<ul>
-							<li>Synthesisers like the 106 and the 909 were old tech in the 90s</li>
 							<li>But they did have a new technology that would change electronic music forever</li>
 							<li>...and that technology...</li>
 						</ul>
@@ -199,7 +200,7 @@
 					<aside class="notes">
 						<ul>
 							<li>...to being *the* band. Bands like:</li>
-							<li>Kraftwerk, Human League, Erasure</li>
+							<li>Kraftwerk, Pet Shop Boys, Erasure</li>
 							<li>Orbital, Chemical Brothers, The Prodigy</li>
 							<li>and Daft Punk all used synthesisers to revolutionise music</li>
 						</ul>
@@ -359,7 +360,7 @@
 				<section data-background-video="src/synth-demo-lfos.mp4" data-transition="fade"></section>
 
 				<section data-transition="fade"><h2><em>Lead</em> demo</h2></section>
-
+<!--	
 				<section data-background-image="src/synth-demo-delays-still.png"  data-transition="fade">
 					<aside class="notes">
 						<ul>
@@ -374,9 +375,9 @@
 				</div>
 
 				<section data-background-video="src/synth-demo-delays.mp4" data-transition="fade"></section>
-
+-->
 				<section data-transition="fade"><h2><em>Lead</em> demo</h2></section>
-
+				
 				<section data-transition="fade">
 					<h2><em>Sample</em> demo</h2>
 					<aside class="notes">
@@ -436,7 +437,6 @@
 				<section data-transition="fade" >
 					<h2><em>Sample</em> demo</h2>
 				</section>
-
 				<section data-transition="fade">
 					<h2>Vocoder</h2>
 					<aside class="notes">
@@ -462,22 +462,30 @@
 					<p class="image-description"><span>Korg Microkorg</span></p>
 				</div>
 
-				<!--
-				<section data-transition="fade" data-background-image="src/digitech-talker.jpg">
+				<section data-transition="fade" data-background-image="src/talkbox.jpeg">
 					<aside class="notes">
 						<ul>
-							<li>In 2018 a Reddit user by the name Randy Goffe researched which vocoder Daft Punk used</li>
-							<li>He suggested they didn't use a vocoder, but a talk box guitar pedal, which works in the same way</li>
-							<li>We still have no hard evidence this is the case, but the results are convincing and Daft Punk were well known for using distortion pedals with their synthesisers</li>
+							<li>According to fans that have tried recreating the sound</li>
+							<li>Daft Punk used a talkbox guitar pedal to achieve a similar effect</li>
+							<li>This is the one I've plugged my laptop into</li>
+							<li>With a flick of a switch I can route the audio from my laptop and my browser through the pedal</li>
 							<li>https://www.reddit.com/r/DaftPunk/comments/8tzlqr/after_8_years_ive_managed_to_figure_out_what/</li>
 						</ul>
 					</aside>
 				</section>
 				<div class="annotations">
-					<p class="image-description"><span>Digitech Talker</span></p>
+					<p class="image-description"><span>TC Helicon Talkbox</span></p>
 				</div>
-				-->
 
+				<section data-transition="fade">
+					<h2>Vocoder demo</h2>
+					<aside class="notes">
+						<ul>
+							<li>So with my audio routed through the pedal, I can use my voice as a gate for sound made by the web audio API</li>
+						</ul>
+					</aside>
+				</section>
+				<!--
 				<section data-transition="fade" data-background-image="src/web-audio-vocoder-still.png">
 					<aside class="notes">
 						<ul>
@@ -494,11 +502,13 @@
 				<section data-transition="fade" data-background-video="src/web-audio-vocoder.mp4">
 
 				</section>
+				-->
 
 				<section data-transition="fade">
 					<h2 class="r-fit-text">Demo</h2>
 					<aside class="notes">
 						<ul>
+							<li>So let's put everything together to see what it sounds like</li>
 							<li>Reminder: While I am using the MIDI controller to cue the sounds</li>
 							<li>It is the browser that is making all the sounds you are hearing</li>
 						</ul>
@@ -515,7 +525,9 @@
 					</ul>
 					<aside class="notes">
 						<ul>
-							<li>Requires domain knowledge</li>
+							<li>That's the web audio API - how would I sum it up?</li>
+							<li>Requires domain knowledge to get started, designed for people who already know how electronic music is made</li>
+							<li>With that said, it's not hard to take your first steps</li>
 							<li>Easy things are easy(ish)</li>
 							<li>Hard things are possible</li>
 							<li>Hard for a beginner to know which is which</li>
@@ -526,20 +538,22 @@
 				<section data-transition="fade" >
 					<h2><em>Web Audio API</em></h2>
 					<ul>
-						<li>"Serious" music production tools are unlikely</li>
+						<li>It's not a Digital Audio Workstation</li>
 						<li>Excellent for <em>education</em> and <em>experimentation</em></li>
 						<li>Supported in Chrome, Edge, Safari and Firefox</li>
 					</ul>
 					<aside class="notes">
 						<ul>
-							<li>"Serious" music production tools are unlikely</li>
-							<li>Don't have the same production tools, mixing power and effects that Logic and Ableton have</li>
+							<li>It's not a Digital Audio Workstation</li>
+							<li>Won't have the same production tools, mixing power and effects</li>
+							<li>as Logic and Ableton have, when just starting out</li>
 							<li>Excellent for educational and experimental roles</li>
 							<li>Supported in Chrome, Edge, Safari and Firefox</li>
 						</ul>
 					</aside>
 				</section>
 
+				<!--
 				<section data-transition="fade" data-background-image="src/tone-js.png">
 					<aside class="notes">
 						<ul>
@@ -554,18 +568,19 @@
 				<div class="annotations">
 					<p class="image-description"><span>Tone.js</span></p>
 				</div>
+				-->
 
 				<section data-transition="fade" >
 					<h2><em>Web MIDI API</em></h2>
 					<ul>
 						<li>MIDI is well supported in musical hardware</li>
-						<li><em>No support</em> in Firefox and Safari</li>
+						<li><em>No support</em> in Safari</li>
 						<li>Excellent for <em>hobbyist development</em></li>
 					</ul>
 					<aside class="notes">
 						<ul>
 							<li>MIDI is well supported in musical hardware</li>
-							<li>Utterly let down by lack of support in Firefox and Safari</li>
+							<li>Utterly let down by lack of support in Safari</li>
 							<li>Excellent for hobbyist development</li>
 						</ul>
 					</aside>
@@ -580,8 +595,10 @@
 						<ul>
 							<li>So what does the web do best?</li>
 							<li>Should we be thinking of integrating the web audio API into our sites?</li>
-							<li>Is it suited for "serious" web-based production tools?</li>
-							<li>Well, no. Enterprise packages like Ableton and Logic won't be re-written in JS</li>
+							<li>Is it a replacement for "serious" production tools?</li>
+							<li>Well, no. Enterprise packages like Ableton and Logic</li>
+							<li>will give you higher quality tools and technology out of the box</li>
+							<li>That doesn't mean web audio and web MIDI are worthless</li>
 						</ul>
 					</aside>
 				</section>
@@ -589,10 +606,22 @@
 				<section data-transition="fade" data-background-image="src/circuit-bending.jpeg">
 					<aside class="notes">
 						<ul>
-							<li>But there is a huge community of hobbyist and experimental musicians, including circuit benders.</li>
+							<li>There is a huge community of hobbyist and experimental musicians, including circuit benders.</li>
 							<li>Circuit benders make electronic music using scrap, toys, and broken synthesisers.</li>
 							<li>If they can make music out of rubbish, you can bet someone can make something cool with a web browser</li>
+						</ul>
+					</aside>
+				</section>
+				<div class="annotations">
+					<p class="image-description">Experimental music</p>
+					<span style="color: white;" class="image-credit">CC BY 2.0: Rosa Menkman</span>
+				</div>
+
+				<section data-transition="fade" data-background-image="src/circuit-bending.jpeg">
+					<aside class="notes">
+						<ul>
 							<li>What makes MIDI so great is that it is used by practically everyone, amateurs and professionals alike.</li>
+							<li>I knew nothing about making electronic music before I started writing this talk, that shows how useful an educational tool web audio and web MIDI can be</li>
 						</ul>
 					</aside>
 				</section>
@@ -754,6 +783,8 @@
 					<div style="float: left; margin-top: 100px;">
 						<h2><em>Thank you</em></h2>
 						<p>CC: BY-SA 3.0</p>
+						<small>front-end.social/@katiefenn</small><br />
+						<small>twitter.com/katie_fenn</small>
 					</div>
 					<img src="src/dax-kira.gif" alt="Dax and Kira from Star Trek Deep Space Nine. Kira is looking at Dax having sipped a drink and saying 'not bad...'" style="width: 480px; float: right; border: 4px solid black; filter: drop-shadow(0 0 0.75rem black);" />
 				</section>

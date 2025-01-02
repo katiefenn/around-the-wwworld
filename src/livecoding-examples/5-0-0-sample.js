@@ -19,6 +19,6 @@ handleMIDI = midiData => {
   let end = context.currentTime + 0.1
   if (isKeyDown(midiData)) {
     // Call playSample can pass in context and buffer
-    playSample(context, clapBuffer)
+
   }
 }

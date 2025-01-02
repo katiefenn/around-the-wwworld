@@ -1,1 +1,1 @@
-echo "Please type RESTOREproject.sh"
+echo "Please type RESTOREbackup.sh"

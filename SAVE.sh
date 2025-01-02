@@ -1,1 +1,1 @@
-echo "Please type SAVEproject.sh"
+echo "Please type SAVEbackup.sh"
